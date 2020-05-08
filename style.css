@@ -52,9 +52,14 @@ p {
   font-size: 16px;
 }
 
-a {
+a,
+li {
   font-family: "Work sans bold", Verdana, Geneva, Tahoma, sans-serif;
   color: var(--light-blue);
+}
+
+.hidden {
+  display: none;
 }
 
 /* NAV */
@@ -179,4 +184,137 @@ nav#nav_menu a:last-child p {
   border-bottom: 2px solid var(--light-blue);
   width: 70px;
   margin: 10px auto 20px;
+}
+
+/* POPUP */
+#popup {
+  background-color: var(--dark-blue);
+  color: white;
+  text-align: center;
+  position: relative;
+  padding: 20px;
+  width: 70%;
+  margin: -300px auto;
+}
+
+#close svg {
+  fill: white;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+}
+
+#popup h1 {
+  margin: 0;
+}
+
+#popup p:first-child {
+  margin-bottom: 0;
+}
+
+/* INTERACTIVE */
+
+#interactive {
+  background-color: var(--interactive-bg);
+  width: 100%;
+  height: 500px;
+  margin-top: 150px;
+}
+
+/* LEARN MORE */
+
+#learn_more {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+#learn_more img {
+  width: 70px;
+  height: 70px;
+  margin-top: 20px;
+}
+
+#did_you_know {
+  background-color: var(--second-bg);
+  padding: 20px;
+  width: 60%;
+  text-align: center;
+}
+
+#did_you_know h2 {
+  margin: 10px;
+}
+
+#download {
+  width: 30%;
+  background-color: var(--dark-blue);
+  padding: 20px;
+  text-align: center;
+}
+
+#download li {
+  list-style: none;
+  margin-bottom: 10px;
+  margin-left: -20px;
+  font-size: 12px;
+  text-align: left;
+}
+
+/* VIDEO */
+
+#campaign_video {
+  background-color: #e51147;
+  width: 100%;
+  height: 500px;
+  margin: 40px 0;
+}
+
+/* MORE ARTICLES */
+
+#title {
+  text-align: center;
+  display: flex;
+}
+
+.line {
+  border-bottom: 2px solid var(--light-blue);
+  width: 25%;
+  margin: 10px auto 55px;
+}
+
+#articles {
+  display: flex;
+  justify-content: space-between;
+}
+
+#articles p,
+#articles h3 {
+  color: white;
+  margin: 0 20px;
+}
+
+#one,
+#two,
+#three {
+  width: 32%;
+  height: 300px;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#one {
+  background-image: url("assets/andels1\ \(1\).jpg");
+}
+#two {
+  background-image: url("assets/closeup-sidespejl.jpg");
+}
+#three {
+  background-image: url("assets/computer-pa-daybed.jpg");
 }
