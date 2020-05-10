@@ -24,6 +24,7 @@
 html {
   max-width: 1240px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 body {
@@ -317,4 +318,84 @@ nav#nav_menu a:last-child p {
 }
 #three {
   background-image: url("assets/computer-pa-daybed.jpg");
+}
+
+/* FOOTER */
+footer {
+  background-color: var(--dark-blue);
+  width: 100vw;
+  margin: 40px 0 0;
+  position: absolute;
+  left: 0;
+  color: white;
+}
+
+footer p,
+footer img {
+  cursor: pointer;
+}
+
+#footer_links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#footer_first p,
+#footer_second p {
+  text-transform: uppercase;
+}
+
+#footer_first div {
+  display: flex;
+  flex-direction: row;
+}
+
+#footer_first div p {
+  margin: 2px 0 0 10px;
+}
+
+footer img {
+  width: 25px;
+  height: 25px;
+}
+
+#footer_second img {
+  width: 100%;
+  height: 200px;
+}
+
+#footer_info ul {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  justify-content: center;
+}
+
+#footer_info li:first-child {
+  list-style: none;
+}
+
+#footer_info li {
+  color: white;
+  font-size: 12px;
+  margin-right: 20px;
+}
+
+#footer_divider {
+  border-bottom: white 2px solid;
+  margin: 0 0 20px;
+}
+
+#some {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#some img {
+  margin-right: 20px;
 }
