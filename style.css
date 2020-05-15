@@ -365,7 +365,7 @@ footer img {
 
 #footer_second img {
   width: 100%;
-  height: 200px;
+  height: 300px;
 }
 
 #footer_info ul {
@@ -394,8 +394,10 @@ footer img {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding-bottom: 100px;
 }
 
-#some img {
-  margin-right: 20px;
+#some a img {
+  width: 40px;
+  height: 40px;
 }
