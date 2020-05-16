@@ -84,7 +84,7 @@
     </header>
 
     <section id="interactive">
-      <div id="screen_one">
+      <div id="screen_one" class="">
         <h2>Udregn din pris på vores Ungdomsforsikring</h2>
         <p class="subheading">Få udregnet din unikke pris og bestil vores ungdomsforsikring "ung" i dag, så er du solidt dækket som ung med både indbo og ulykkesforsikring.</p>
         <ul>
@@ -127,6 +127,256 @@
             <p>BESTIL</p>
             <img src="/assets/global_white.svg">
         </div>
+      </div>
+
+      <div id="screen_two" class="hidden">
+        <h2>Vælg tilvalg</h2>
+        <p class="subheading">Føler du ikke alle dine behov er blevet dækket, kan du altid tilvælge ekstra til din forsikring.</p>
+
+        <div id="extras">
+          <div id="travel" class="choice">
+            <div class="main_info">
+            <img src="assets/linkedin.PNG">
+            <div class="description">
+              <p class="heading">Rejse</p>
+              <p>Du kan vælge om din rejseforsikring skal dække i hele Europa eller hele verden. Du kan udvide forsikringen med afbestillingsforsikring og skidækning.</p>
+              <p><b>Læs mere</b></p>
+            </div>
+            <label class="container">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="extra_info hidden">
+            <ul>
+              <li>Hvis du bliver akut syg eller kommer til skade på din ferie</li>
+              <li>Alle udgifter til lægebehandling og hospitalsindlæggelse på din ferie</li>
+              <li>Hjemtransport hvis du bliver alvorlig syg på rejsen, eller hvis du bliver kaldt hjem</li>
+              <li>På ferier i Danmark med minimum 3 overnatninger</li>
+              <li>Erstatningsrejse for ødelagt ferie eller hvis enkelte døgn bliver ødelagt</li>
+              <li>På ferier og rejser, der varer op til 60 dage</li>
+              <li>Kompensation ved baggage- og transportforsinkelse</li>
+            </ul>
+          </div>
+          </div>
+          <div id="electronic" class="choice">
+            <div class="main_info">
+            <img src="assets/linkedin.PNG">
+            <div class="description">
+              <p class="heading">Elektronik</p>
+              <p>Dækker pludselige skader og funktionsfejl i dit elektroniske udstyr. Forsikringen har en selvrisiko på 1.000 kr.</p>
+              <p><b>Læs mere</b></p>
+            </div>
+            <label class="container">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="extra_info hidden">
+            <ul>
+              <li>Funktionsfejl i dit elektroniske udstyr, f.eks. hvis dit 3 år gamle TV ikke længere fungerer</li>
+              <li>Pludselig skade, f.eks. hvis du ved et uheld taber et glas cola ned i din computer, og den efterfølgende ikke virker</li>
+            </ul>
+          </div>
+          </div>
+          <div id="accident" class="choice">
+            <div class="main_info">
+            <img src="assets/linkedin.PNG">
+            <div class="description">
+              <p class="heading">Ulykke</p>
+              <p>Hvis du bor sammen med din kæreste, har du mulighed for at tilføje en ekstra forsikring til ham/hende, og få en ulykkesforsikring til en god pris</p>
+              <p><b>Læs mere</b></p>
+            </div>
+            <label class="container">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="extra_info hidden">
+            <ul>
+              <li>Invaliditetssum på 838.109 kr.</li>
+              <li>Du får erstatning ved varigt mén, dog skal méngraden være 5 % eller mere. Får du en méngrad på 10 %, får du en erstatning på 10% af invaliditetssummen, altså 83.810,90 kr. </li>
+              <li>Forsikringen dækker hele døgnet </li>
+              <li>Få op til 5.000 kr. til lægeordinerede behandlinger hos fysioterapeut eller kiropraktor.</li>
+              <li>Du får dobbelt erstatning, hvis du får over 30 % varigt mén. Det betyder, at hvis du får f.eks. 40 % varigt mén, giver vi dig 80 % af invaliditetssummen, altså 670.487,20 kr. </li>
+              <li>Der er ingen erstatning, hvis du dør</li>
+            </ul>
+          </div>
+          </div>
+        </div>
+
+        <div class="continue_button">
+          <p>VIDERE</p>
+          <img src="assets/global_white.svg">
+        </div>
+      </div>
+
+      <div id="screen_three" class="hidden">
+        <h2>Indtast dine oplysninger</h2>
+        <p class="subheading">For at kunne udregne din unikke pris, skal vi bruge dine informationer.</p>
+
+        <form>
+          <label for="name">Dit navn</label>
+            <input type="text" id="name" name="name">
+          <label for="cpr_birthday">CPR nummer</label>
+          <div><input type="number" id="cpr_birthday" name="cpr_birthday"> <p>-</p>
+            <input type="number" id="cpr_personal" name="cpr_personal"> <img class="question" src="/assets/global_white.svg"><div class="answer hidden"><p>Vi bruger dit CPR nummer til at udregne din alder mm.</p></div></div>
+            <label for="adr">Addresse</label>
+            <input type="text" id="adr" name="address">
+            <div><label for="post">Postnr.</label><label for="city">By</label></div>
+            <div><input type="number" id="post" name="post">
+            <input type="text" id="city" name="city"></div>
+            <div><label for="email">Email</label><label for="phone">Tlf nr.</label></div>
+            <div><input type="text" id="email" name="email">
+            
+            <input type="number" id="phone" name="phone"></div>
+
+            <label class="container"> Jeg har ikke anmeldt en skade på min indbosforsikring de sidste 2 år
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container"> Alm. Brand må gemme min data til fremtidig brug <img class="question" src="/assets/global_white.svg"><div class="answer hidden"><p>Vi gemmer din data og bruger den til spændende ting</p></div>
+              <input type="checkbox">
+              <span class="checkmark"></span> 
+            </label>
+        </form>
+
+        <div class="continue_button">
+          <p>VIDERE</p>
+          <img src="assets/global_white.svg">
+        </div>
+      </div>
+
+      <div id="screen_four" class="hidden">
+        <h2>Din forsikring</h2>
+        <div class="chosen_insurance">
+          <div class="young">
+            <img src="assets/systemicons_darkblue_profile.svg">
+            <h3>Ung</h3>
+          </div>
+          <div class="travel_insurance hidden">
+            <p>+</p>
+            <div>
+            <img src="assets/systemicons_darkblue_profile.svg">
+            <h3>Rejse</h3>
+          </div>
+          </div>
+          <div class="electronic_insurance hidden">
+            <p>+</p>
+          <div>
+            <img src="assets/systemicons_darkblue_profile.svg">
+            <h3>Elektronik</h3>
+          </div>
+          </div>
+          <div class="accident_insurance hidden">
+            <p>+</p>
+          <div>
+            <img src="assets/systemicons_darkblue_profile.svg">
+            <h3>Ulykke</h3>
+          </div>
+          </div>
+        </div>
+        <div id="chosen_covers">
+          <ul>
+            <li><img src="assets/global_white.svg">Indboforsikring</li>
+            <li><img src="assets/global_white.svg">Ulykkesforsikring</li>
+            <li><img src="assets/global_white.svg">Lægeordineret behandling</li>
+          </ul>
+          <ul>
+            <li><img src="assets/global_white.svg">Ansvarsforsikring</li>
+            <li><img src="assets/global_white.svg">Cykelforsikring</li>
+            <li><img src="assets/global_white.svg">Tandskader</li>
+          </ul>
+          <ul>
+            <li id="travel_covers" class="hidden"><img src="assets/global_white.svg">Rejse</li>
+            <li id="electronic_covers" class="hidden"><img src="assets/global_white.svg">Elektronik</li>
+            <li id="accident_covers" class="hidden"><img src="assets/global_white.svg">Ulykke</li>
+          </ul>
+        </div>
+        <p class="subheading">I vores ungdomsforsikring har du indbosforsikring for samlet indbo værdi af 332.000 kr. samt en selvrisiko på 1293 kr.</p>
+        <h2>Din pris pr. måned</h2>
+        <p id="your_price">230 kr.</p>
+
+        <div class="buy_button">
+          <p>KØB</p>
+          <img src="assets/global_white.svg">
+        </div>
+      </div>
+
+      <div id="screen_five" class="hidden">
+        <h2>Betal</h2>
+        <p class="subheading">Vælg betalingsmetode</p>
+        <div id="pay_method">
+          <div>
+            <img src="assets/ab_ikon_vidstedu.svg">
+            <p>MobilePay</p>
+            <label class="container">
+              <input type="radio" name="pay" id="mobilepay">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div>
+            <img src="assets/ab_ikon_vidstedu.svg">
+            <p>Dankort/Visa</p>
+            <label class="container">
+              <input type="radio" name="pay" id="dankort">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+            <div>
+              <img src="assets/ab_ikon_vidstedu.svg">
+              <p>Betalingsservice</p>
+            <label class="container">
+              <input type="radio" name="pay" id="betalingsservice">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+            <div>
+              <img src="assets/ab_ikon_vidstedu.svg">
+              <p>ApplePay</p>
+              <label class="container">
+                <input type="radio" name="pay" id="applepay">
+                <span class="checkmark"></span>
+              </label>
+          </div>
+        </div>
+
+        <div class="order_button">
+          <p>BESTIL</p>
+          <img src="assets/global_white.svg">
+        </div>
+      </div>
+
+      <div id="screen_six" class="hidden">
+        <h2>Tak for din bestilling</h2>
+        <div class="chosen_insurance">
+          <div class="young">
+            <img src="assets/systemicons_darkblue_profile.svg">
+            <h3>Ung</h3>
+          </div>
+          <div class="travel_insurance hidden">
+            <p>+</p>
+            <div>
+            <img src="assets/systemicons_darkblue_profile.svg">
+            <h3>Rejse</h3>
+          </div>
+          </div>
+          <div class="electronic_insurance hidden">
+            <p>+</p>
+          <div>
+            <img src="assets/systemicons_darkblue_profile.svg">
+            <h3>Elektronik</h3>
+          </div>
+          </div>
+          <div class="accident_insurance hidden">
+            <p>+</p>
+          <div>
+            <img src="assets/systemicons_darkblue_profile.svg">
+            <h3>Ulykke</h3>
+          </div>
+          </div>
+        </div>
+        <p class="subheading">Du modtager ordrebekræftelse og kvittering på din mail.</p>
       </div>
     </section>
 
