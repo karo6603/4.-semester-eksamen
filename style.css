@@ -59,6 +59,29 @@ li {
   color: var(--light-blue);
 }
 
+button {
+  background-color: var(--dark-blue);
+  width: 200px;
+  margin: 40px auto;
+  border-radius: 40px;
+  border: 4px var(--second-bg) solid;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+button img {
+  width: 15px;
+  height: 15px;
+  margin: auto 15px;
+  display: none;
+}
+
+button:hover > img {
+  display: block !important;
+}
+
 /* NAV */
 
 nav a {
@@ -191,7 +214,7 @@ nav#nav_menu a:last-child p {
   position: relative;
   padding: 20px;
   width: 70%;
-  margin: -300px auto;
+  margin: -300px auto -78px;
 }
 
 #close svg {
@@ -201,6 +224,7 @@ nav#nav_menu a:last-child p {
   right: 20px;
   width: 25px;
   height: 25px;
+  cursor: pointer;
 }
 
 #popup h1 {
@@ -273,9 +297,10 @@ nav#nav_menu a:last-child p {
   display: flex;
   width: 250px;
   margin: 0 auto;
+  cursor: pointer;
 }
 
-.arrow {
+.arrow img {
   width: 40px;
   height: 40px;
 }
@@ -287,10 +312,14 @@ nav#nav_menu a:last-child p {
   border-bottom: 2px solid var(--dark-blue);
 }
 
+#screen_one .subheading {
+  margin-top: -10px;
+}
+
 .heading {
-  font-size: 30px;
+  font-size: 25px;
   text-align: left;
-  margin: 60px 60px 0;
+  margin: 60px 60px 20px;
 }
 
 #insurance_covers {
@@ -304,38 +333,6 @@ nav#nav_menu a:last-child p {
   display: flex;
   flex-direction: column;
   width: 45%;
-}
-
-.start_button,
-.continue_button,
-.buy_button,
-.order_button {
-  background-color: var(--dark-blue);
-  width: 200px;
-  margin: 40px auto;
-  border-radius: 40px;
-  border: 4px var(--second-bg) solid;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.start_button img,
-.continue_button img,
-.buy_button img,
-.order_button img {
-  width: 20px;
-  height: 20px;
-  margin: 15px;
-  display: none;
-}
-
-.start_button:hover > img,
-.continue_button:hover > img,
-.buy_button:hover > img,
-.order_button:hover > img {
-  display: block !important;
 }
 
 /* SCREEN TWO */
@@ -352,6 +349,7 @@ nav#nav_menu a:last-child p {
 .main_info img {
   width: 100px;
   height: 100px;
+  margin: auto;
 }
 
 .main_info {
@@ -362,6 +360,7 @@ nav#nav_menu a:last-child p {
 
 .description {
   width: 80%;
+  margin-left: 20px;
 }
 
 .description .heading {
@@ -417,14 +416,29 @@ nav#nav_menu a:last-child p {
   transform: rotate(45deg);
 }
 
+.choose_read_more {
+  cursor: pointer;
+}
+
 .extra_info {
-  width: 75%;
+  width: 82%;
   margin: 0 auto;
 }
 
 .extra_info li {
   color: var(--dark-blue);
-  list-style: url("/assets/fb.PNG");
+  list-style: url("/assets/Icon\ ionic-ios-checkmark.svg");
+  margin-bottom: 20px;
+}
+
+#accident .extra_info li:last-child {
+  margin: -20px;
+  padding: 20px 0 20px 20px;
+  list-style: none;
+  background-image: url("assets/signs.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 15px;
 }
 
 /* SCREEN THREE */
@@ -477,9 +491,9 @@ form div {
 }
 
 .question {
-  width: 40px;
-  height: 40px;
-  margin-left: 20px;
+  width: 20px;
+  height: 20px;
+  margin: 10px 20px;
 }
 
 .question:hover + .answer {
@@ -615,9 +629,9 @@ form .checkmark {
 }
 
 #pay_method img {
-  width: 40px;
-  height: 40px;
-  margin: 5px 40px;
+  width: auto;
+  height: 30px;
+  margin: auto;
 }
 
 #pay_method p {
