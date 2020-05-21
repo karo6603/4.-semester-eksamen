@@ -60,26 +60,24 @@ li {
 }
 
 button {
-  background-color: var(--dark-blue);
+  background-color: transparent;
   width: 200px;
   margin: 40px auto;
   border-radius: 40px;
-  border: 4px var(--second-bg) solid;
-  color: white;
+  border: 2px var(--dark-blue) solid;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  cursor: pointer;
 }
 
-button img {
-  width: 15px;
-  height: 15px;
-  margin: auto 15px;
-  display: none;
+.larger_button:hover {
+  transform: scale(1.05);
 }
 
-button:hover > img {
-  display: block !important;
+.bcg_button:hover {
+  background-color: var(--dark-blue);
+  color: white;
 }
 
 /* NAV */
@@ -174,7 +172,7 @@ nav#nav_menu a:last-child p {
 /* HERO */
 
 #hero {
-  background-image: url(assets/pexels-photo-1549280.jpeg);
+  background-image: url(assets/two-women-sitting-on-white-bench-1549280.jpg);
   width: 100%;
   height: 500px;
   background-repeat: no-repeat;
@@ -329,10 +327,17 @@ nav#nav_menu a:last-child p {
   margin: 0 60px 60px;
 }
 
-#insurance_covers div {
+#insurance_covers p {
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 30%;
+}
+
+#start_button {
+  border: 6px solid rgba(5, 41, 81, 0.4);
+  background-color: var(--dark-blue);
+  background-clip: padding-box;
+  color: white;
 }
 
 /* SCREEN TWO */
@@ -514,7 +519,8 @@ form .container .question {
   margin: -10px 20px;
 }
 
-label[for="phone"] {
+label[for="phone"],
+label[for="lname"] {
   left: 53%;
   position: absolute;
 }
@@ -529,7 +535,9 @@ form div input:first-child {
 }
 
 #email,
-#phone {
+#phone,
+#fname,
+#lname {
   width: 45%;
 }
 
@@ -596,9 +604,12 @@ form .checkmark {
   margin-right: 10px;
 }
 
-#screen_four ul {
+#chosen_covers {
   max-width: 800px;
   margin: 20px auto;
+}
+
+#screen_four ul {
   display: flex;
   justify-content: space-between;
 }
@@ -679,6 +690,65 @@ form .checkmark {
   background: white;
 }
 
+#order_button {
+  border: 6px solid rgba(0, 185, 234, 0.4);
+  background-color: var(--light-blue);
+  background-clip: padding-box;
+  color: white;
+}
+
+/* PROCESS BAR */
+.procesbar {
+  width: 400px;
+  margin: auto;
+}
+
+.bar {
+  border-top: 2px solid var(--dark-blue);
+  width: 85%;
+  margin: auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: -5px 0 0;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dot {
+  background-color: var(--dark-blue);
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.doing {
+  border: 10px solid var(--light-blue);
+  margin: -10px 0 0;
+}
+
+.done {
+  background-image: url("assets/Icon\ ionic-ios-checkmark.svg");
+  background-color: var(--light-blue);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  border: 5px solid var(--light-blue);
+  margin: -10px 0 0;
+}
+
 /* LEARN MORE */
 
 #learn_more {
@@ -694,9 +764,30 @@ form .checkmark {
   margin-top: 20px;
 }
 
+.box img {
+  padding: 20px 20px -10px;
+  margin-top: 30px !important;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-name: bounce-2;
+  animation-timing-function: ease;
+}
+
+@keyframes bounce-2 {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 #did_you_know {
   background-color: var(--second-bg);
-  padding: 20px;
+  padding: 0px 20px 20px;
   width: 60%;
   text-align: center;
 }
@@ -859,4 +950,8 @@ footer img {
 
 .hidden {
   display: none !important;
+}
+
+.visible {
+  visibility: hidden;
 }
