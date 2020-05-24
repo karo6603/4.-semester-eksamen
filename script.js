@@ -3,6 +3,7 @@ const form = document.querySelector("form");
 let newPrice = 230;
 let currentScreen;
 let previousScreen;
+let isValid = false;
 
 function start() {
   document
@@ -15,16 +16,10 @@ function start() {
         document.querySelector("#popup").classList.add("hidden");
       });
     });
+
   document.querySelectorAll(".button").forEach((btn) => {
     btn.addEventListener("click", () => {
-      btn.parentElement.classList.add("hidden");
-      btn.parentElement.nextElementSibling.classList.remove("hidden");
-
-      calculateCurrentScreen(btn.parentElement);
-
-      calculatePreviousScreen(btn.parentElement);
-
-      processBar(btn.parentElement);
+      switchScreen(btn);
     });
   });
 
@@ -85,6 +80,15 @@ function start() {
 
   addUser();
 
+  document.querySelectorAll('input[type="radio"]').forEach((radio) => {
+    radio.oninput = function () {
+      if (radio.checked) {
+        console.log(radio.checked);
+        document.querySelector("#order_button").disabled = false;
+      }
+    };
+  });
+
   document
     .querySelector("#continue_button")
     .addEventListener("click", calculatePrice);
@@ -94,6 +98,26 @@ function start() {
       showInsurances(extra);
     });
   });
+}
+
+function switchScreen(btn) {
+  checkRadio();
+  if (btn == document.querySelector(".check_validity") && !isValid) {
+    validateForm(btn);
+  } else if (isValid || btn !== document.querySelector(".check_validity")) {
+    if (btn == document.querySelector('button[type="submit"]') && isValid) {
+      post();
+    }
+
+    btn.parentElement.classList.add("hidden");
+    btn.parentElement.nextElementSibling.classList.remove("hidden");
+
+    calculateCurrentScreen(btn.parentElement);
+
+    calculatePreviousScreen(btn.parentElement);
+
+    processBar(btn.parentElement);
+  }
 }
 
 function addUser() {
@@ -114,14 +138,31 @@ function addUser() {
       }
     };
   });
-
-  document
-    .querySelector("#continue_button")
-    .addEventListener("submit", (evt) => {
-      post();
-      evt.preventDefault();
-    });
 }
+
+function validateForm(btn) {
+  let validFields = 0;
+  document.querySelectorAll("form input[required]").forEach((elm) => {
+    if (!elm.value) {
+      elm.classList.add("fill_out");
+      isValid = false;
+    } else if (elm.value) {
+      elm.classList.remove("fill_out");
+      validFields++;
+    }
+
+    if (validFields > 8 && document.querySelector("#data").checked) {
+      isValid = true;
+      switchScreen(btn);
+    } else if (!document.querySelector("#data").checked) {
+      document.querySelector("#data").parentElement.style.color = "var(--red)";
+    } else
+      document.querySelector("#data").parentElement.style.color =
+        "var(--dark-blue)";
+  });
+}
+
+function checkRadio() {}
 
 function post() {
   const data = {
@@ -134,16 +175,17 @@ function post() {
     city: form.elements.city.value,
     email: form.elements.email.value,
     phone: form.elements.phone.value,
-    data: form.elements.data.value,
   };
+
+  console.log(data);
 
   const postData = JSON.stringify(data);
   fetch("https://almbrand-1893.restdb.io/rest/kunder", {
-    method: "post",
+    method: "POST",
     headers: {
-      "content-type": "application/json; charset=utf-8",
-      "x-apikey": "5ec6e2705d18da1086cb1769",
       "cache-control": "no-cache",
+      "x-apikey": "5ec6e2705d18da1086cb1769",
+      "content-type": "application/json",
     },
     body: postData,
   })

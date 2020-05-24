@@ -737,7 +737,7 @@ form .checkmark {
 }
 
 .done {
-  background-image: url("assets/Icon\ ionic-ios-checkmark.svg");
+  background-image: url("assets/Icon\ metro-checkmark.png");
   background-color: var(--light-blue);
   background-size: contain;
   background-repeat: no-repeat;
@@ -952,6 +952,10 @@ footer img {
   display: none !important;
 }
 
-.visible {
-  visibility: hidden;
+.fill_out {
+  border-bottom: var(--red) 2px solid;
+}
+
+.checked {
+  border: 2px solid var(--red);
 }
