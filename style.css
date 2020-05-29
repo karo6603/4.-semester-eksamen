@@ -441,7 +441,7 @@ nav#nav_menu div img {
 
 .extra_info li {
   color: var(--dark-blue);
-  list-style: url("/assets/Icon\ ionic-ios-checkmark.svg");
+  list-style: url("assets/Icon\ ionic-ios-checkmark.svg");
   margin-bottom: 20px;
 }
 
