@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", start);
 const form = document.querySelector("form");
-let newPrice = 230;
 let currentScreen;
 let previousScreen;
 let isValid = false;
@@ -17,6 +16,16 @@ function start() {
       });
     });
 
+  document.querySelectorAll(".expand").forEach((icon) => {
+    icon.addEventListener("click", () => {
+      document.querySelector("#covered_read_more").classList.toggle("hidden");
+      document.querySelector("#read_more_icon").classList.toggle("hidden");
+      document
+        .querySelector("#screen_one .subheading b")
+        .classList.toggle("hidden");
+    });
+  });
+
   document.querySelectorAll(".button").forEach((btn) => {
     btn.addEventListener("click", () => {
       switchScreen(btn);
@@ -25,43 +34,7 @@ function start() {
 
   document.querySelectorAll(".dot").forEach((dot) => {
     dot.addEventListener("click", () => {
-      let parent = dot.parentElement.parentElement.parentElement.parentElement;
-
-      if (
-        dot.classList.contains("first") &&
-        !parent.classList.contains("hidden")
-      ) {
-        document.querySelector("#screen_two").classList.toggle("hidden");
-        parent.classList.toggle("hidden");
-      } else if (
-        dot.classList.contains("second") &&
-        !parent.classList.contains("hidden")
-      ) {
-        document.querySelector("#screen_three").classList.remove("hidden");
-        parent.classList.add("hidden");
-      } else if (
-        dot.classList.contains("third") &&
-        !parent.classList.contains("hidden")
-      ) {
-        document.querySelector("#screen_four").classList.remove("hidden");
-        parent.classList.add("hidden");
-      } else if (
-        dot.classList.contains("fourth") &&
-        !parent.classList.contains("hidden")
-      ) {
-        document.querySelector("#screen_five").classList.remove("hidden");
-        parent.classList.add("hidden");
-      }
-    });
-  });
-
-  document.querySelectorAll(".expand").forEach((icon) => {
-    icon.addEventListener("click", () => {
-      document.querySelector("#covered_read_more").classList.toggle("hidden");
-      document.querySelector("#read_more_icon").classList.toggle("hidden");
-      document
-        .querySelector("#screen_one .subheading b")
-        .classList.toggle("hidden");
+      moveViaProcessBar(dot);
     });
   });
 
@@ -78,19 +51,16 @@ function start() {
     });
   });
 
-  addUser();
-
   document.querySelectorAll('input[type="radio"]').forEach((radio) => {
     radio.oninput = function () {
       if (radio.checked) {
-        console.log(radio.checked);
         document.querySelector("#order_button").disabled = false;
       }
     };
   });
 
   document
-    .querySelector("#continue_button")
+    .querySelector(".check_validity")
     .addEventListener("click", calculatePrice);
 
   document.querySelectorAll("#screen_two .checkbox").forEach((extra) => {
@@ -98,10 +68,11 @@ function start() {
       showInsurances(extra);
     });
   });
+
+  numberInputs();
 }
 
 function switchScreen(btn) {
-  checkRadio();
   if (btn == document.querySelector(".check_validity") && !isValid) {
     validateForm(btn);
   } else if (isValid || btn !== document.querySelector(".check_validity")) {
@@ -120,14 +91,14 @@ function switchScreen(btn) {
   }
 }
 
-function addUser() {
-  document.querySelectorAll('input[type="number"]').forEach((btn) => {
+function numberInputs() {
+  form.querySelectorAll('input[type="number"]').forEach((btn) => {
     btn.oninput = function () {
-      if (this == document.querySelector("#cpr_birthday")) {
+      if (this == form.querySelector("#cpr_birthday")) {
         if (this.value.length > 6) {
           this.value = this.value.slice(0, 6);
         }
-      } else if (this == document.querySelector("#phone")) {
+      } else if (this == form.querySelector("#phone")) {
         if (this.value.length > 8) {
           this.value = this.value.slice(0, 8);
         }
@@ -162,8 +133,6 @@ function validateForm(btn) {
   });
 }
 
-function checkRadio() {}
-
 function post() {
   const data = {
     fname: form.elements.fname.value,
@@ -176,8 +145,6 @@ function post() {
     email: form.elements.email.value,
     phone: form.elements.phone.value,
   };
-
-  console.log(data);
 
   const postData = JSON.stringify(data);
   fetch("https://almbrand-1893.restdb.io/rest/kunder", {
@@ -196,20 +163,23 @@ function post() {
 }
 
 function calculatePrice() {
-  if (!document.querySelector(".damage").checked) {
-    newPrice = newPrice - 99;
-  }
-  if (document.querySelector('.checkbox[value="travel"]').checked) {
-    newPrice = newPrice + 69;
-  }
-  if (document.querySelector('.checkbox[value="electronic"]').checked) {
-    newPrice = newPrice + 49;
-  }
-  if (document.querySelector('.checkbox[value="accident"]').checked) {
-    newPrice = newPrice + 89;
-  }
+  let newPrice = 230;
+  if (isValid) {
+    if (!document.querySelector(".damage").checked) {
+      newPrice = newPrice + 99;
+    }
+    if (document.querySelector('.checkbox[value="travel"]').checked) {
+      newPrice = newPrice + 69;
+    }
+    if (document.querySelector('.checkbox[value="electronic"]').checked) {
+      newPrice = newPrice + 49;
+    }
+    if (document.querySelector('.checkbox[value="accident"]').checked) {
+      newPrice = newPrice + 89;
+    }
 
-  document.querySelector("#your_price").textContent = `${newPrice} kr.`;
+    document.querySelector("#your_price").textContent = `${newPrice} kr.`;
+  }
 }
 
 function showInsurances(chosen) {
@@ -260,14 +230,41 @@ function calculatePreviousScreen(screen2) {
 function processBar(screen) {
   if (screen.id !== "screen_one") {
     previousScreen.forEach((dot) => {
-      dot.classList.toggle("done");
-      dot.classList.toggle("doing");
+      dot.classList.add("done");
+      dot.classList.remove("doing");
     });
   }
 
   if (screen.classList.contains("hidden")) {
     currentScreen.forEach((dot) => {
-      dot.classList.toggle("doing");
+      dot.classList.add("doing");
     });
+  }
+}
+
+function moveViaProcessBar(dot) {
+  let parent = dot.parentElement.parentElement.parentElement.parentElement;
+
+  if (dot.classList.contains("first") && !parent.classList.contains("hidden")) {
+    document.querySelector("#screen_two").classList.toggle("hidden");
+    parent.classList.toggle("hidden");
+  } else if (
+    dot.classList.contains("second") &&
+    !parent.classList.contains("hidden")
+  ) {
+    document.querySelector("#screen_three").classList.remove("hidden");
+    parent.classList.add("hidden");
+  } else if (
+    dot.classList.contains("third") &&
+    !parent.classList.contains("hidden")
+  ) {
+    document.querySelector("#screen_four").classList.remove("hidden");
+    parent.classList.add("hidden");
+  } else if (
+    dot.classList.contains("fourth") &&
+    !parent.classList.contains("hidden")
+  ) {
+    document.querySelector("#screen_five").classList.remove("hidden");
+    parent.classList.add("hidden");
   }
 }
