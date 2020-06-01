@@ -153,6 +153,8 @@ nav#nav_menu a:first-child {
 nav#nav_menu a:first-child img {
   position: absolute;
   bottom: 5px;
+  width: 100px;
+  height: 100px;
 }
 
 nav#nav_menu #inner_nav {
