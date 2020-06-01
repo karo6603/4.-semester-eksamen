@@ -622,6 +622,10 @@ form .checkmark {
   max-width: 800px;
   margin: 20px auto;
 }
+#chosen_covers ul:last-child {
+  max-width: 505px;
+  margin: 20px 0px;
+}
 
 #screen_four ul {
   display: flex;

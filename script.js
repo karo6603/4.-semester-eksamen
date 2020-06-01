@@ -189,15 +189,14 @@ function showInsurances(chosen) {
   document.querySelector(`#${chosen.value}_covers`).classList.toggle("hidden");
 
   if (
-    (chosen.checked &&
-      document.querySelector('.checkbox[value="travel"]').checked) ||
-    document.querySelector('.checkbox[value="electronic"]').checked ||
+    document.querySelector('.checkbox[value="travel"]').checked &&
+    document.querySelector('.checkbox[value="electronic"]').checked &&
     document.querySelector('.checkbox[value="accident"]').checked
   ) {
     document.querySelector("#chosen_covers").lastElementChild.style.maxWidth =
-      "505px";
+      "800px";
     document.querySelector("#chosen_covers").lastElementChild.style.margin =
-      "20px 0px";
+      "20px auto";
   }
 }
 
