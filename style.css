@@ -30,6 +30,7 @@ html {
 body {
   color: var(--dark-blue);
   margin: 20px;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -120,6 +121,7 @@ nav#nav_login a {
 
 nav#nav_login a:first-child {
   border: solid 2px var(--red);
+  vertical-align: 50%;
 }
 
 nav#nav_login a:nth-child(2) {
@@ -774,9 +776,13 @@ form .checkmark {
   margin-top: 20px;
 }
 
+.box {
+  width: 100%;
+  margin: 20px !important;
+}
+
 .box img {
-  padding: 20px 20px -10px;
-  margin-top: 30px !important;
+  margin: 40px auto 0;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-name: bounce-2;
@@ -1052,6 +1058,10 @@ footer img {
     font-size: 18px;
   }
 
+  nav#nav_menu a:nth-child(3) img {
+    margin-left: 40px;
+  }
+
   #learn_more {
     flex-direction: column;
   }
@@ -1170,5 +1180,95 @@ footer img {
   }
   #pay_method img {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  #popup {
+    margin: -436px auto -78px;
+  }
+
+  .main_info {
+    flex-direction: column-reverse;
+  }
+
+  .description {
+    margin: 50px 20px 20px;
+  }
+
+  .main_info .container {
+    margin: 5% 20px;
+  }
+
+  .procesbar {
+    width: 250px;
+  }
+
+  .step p {
+    font-size: 12px;
+  }
+
+  #cpr_birthday {
+    width: 90px;
+  }
+
+  #learn_more div {
+    width: 87%;
+  }
+
+  #learn_more img {
+    width: 60px;
+    height: 60px;
+  }
+
+  nav#nav_menu a:nth-child(3) img {
+    margin-left: 0;
+  }
+
+  #footer_info ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .heading {
+    margin: 60px auto 20px;
+    width: 80%;
+  }
+
+  #insurance_covers {
+    margin: 0 auto 60px;
+    width: 80%;
+  }
+
+  .choice {
+    margin: 20px;
+  }
+
+  #download img {
+    display: none;
+  }
+
+  #cpr_personal {
+    width: 45px;
+  }
+
+  .chosen_insurance {
+    flex-direction: column;
+  }
+  .chosen_insurance div {
+    margin-left: 0;
+    flex-direction: column;
+    text-align: center;
+  }
+  #screen_five .container {
+    margin: 15px 20px;
+  }
+
+  #pay_method div {
+    margin: 20px;
   }
 }

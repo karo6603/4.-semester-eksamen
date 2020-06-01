@@ -245,26 +245,17 @@ function processBar(screen) {
 function moveViaProcessBar(dot) {
   let parent = dot.parentElement.parentElement.parentElement.parentElement;
 
-  if (dot.classList.contains("first") && !parent.classList.contains("hidden")) {
-    document.querySelector("#screen_two").classList.toggle("hidden");
-    parent.classList.toggle("hidden");
-  } else if (
-    dot.classList.contains("second") &&
-    !parent.classList.contains("hidden")
-  ) {
-    document.querySelector("#screen_three").classList.remove("hidden");
+  if (!parent.classList.contains("hidden")) {
     parent.classList.add("hidden");
-  } else if (
-    dot.classList.contains("third") &&
-    !parent.classList.contains("hidden")
-  ) {
-    document.querySelector("#screen_four").classList.remove("hidden");
-    parent.classList.add("hidden");
-  } else if (
-    dot.classList.contains("fourth") &&
-    !parent.classList.contains("hidden")
-  ) {
-    document.querySelector("#screen_five").classList.remove("hidden");
-    parent.classList.add("hidden");
+
+    if (dot.classList.contains("first")) {
+      document.querySelector("#screen_two").classList.remove("hidden");
+    } else if (dot.classList.contains("second")) {
+      document.querySelector("#screen_three").classList.remove("hidden");
+    } else if (dot.classList.contains("third")) {
+      document.querySelector("#screen_four").classList.remove("hidden");
+    } else if (dot.classList.contains("fourth")) {
+      document.querySelector("#screen_five").classList.remove("hidden");
+    }
   }
 }
